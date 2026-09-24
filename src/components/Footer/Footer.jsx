@@ -11,8 +11,12 @@ export default function Footer() {
           <span className="footer__eye" aria-hidden="true" />
           <strong>{profile.fullName}</strong>
         </div>
-        <p>Mayūra palette · sapphire · teal · gold</p>
-        <p className="footer__copy">© {year} {profile.name}. All rights reserved.</p>
+        <p>
+          {profile.title} · {profile.location}
+        </p>
+        <p className="footer__copy">
+          © {year} {profile.fullName}. All rights reserved.
+        </p>
       </div>
     </footer>
   );

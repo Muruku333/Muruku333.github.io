@@ -7,9 +7,10 @@ export default function Skills() {
     <section id="skills" className="section skills">
       <div className="section-inner">
         <p className="section-label">Skills</p>
-        <h2 className="section-title">Colours in the toolkit</h2>
+        <h2 className="section-title">Technical toolkit</h2>
         <p className="section-lead">
-          A spectrum of languages and tools — each one a barb on the feather.
+          Frontend, backend, databases, integrations, automation and enterprise platforms used
+          across Refex Group applications.
         </p>
 
         <div className="skills__rows">

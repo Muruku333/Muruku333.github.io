@@ -14,7 +14,11 @@ export default function Contact() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // Frontend-only demo — wire to EmailJS / Formspree / your API later.
+    const subject = encodeURIComponent(`Portfolio enquiry from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
+    );
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
     setSent(true);
     setForm({ name: '', email: '', message: '' });
   };
@@ -24,9 +28,10 @@ export default function Contact() {
       <div className="section-inner contact__layout">
         <div>
           <p className="section-label">Contact</p>
-          <h2 className="section-title">Let&apos;s build something iridescent</h2>
+          <h2 className="section-title">Let&apos;s build the next solution</h2>
           <p className="section-lead">
-            Say hello — whether it&apos;s a role, a collaboration, or a curious idea.
+            Open to roles, collaborations and product builds across full-stack and enterprise
+            application development.
           </p>
 
           <ul className="contact__channels">
@@ -35,15 +40,17 @@ export default function Contact() {
               <a href={`mailto:${profile.email}`}>{profile.email}</a>
             </li>
             <li>
-              <span>GitHub</span>
-              <a href={profile.github} target="_blank" rel="noopener noreferrer">
-                Profile
-              </a>
+              <span>Phone</span>
+              <a href={profile.phoneHref}>{profile.phone}</a>
             </li>
             <li>
-              <span>LinkedIn</span>
-              <a href={profile.linkedin} target="_blank" rel="noopener noreferrer">
-                Connect
+              <span>Location</span>
+              <span className="contact__plain">{profile.location}</span>
+            </li>
+            <li>
+              <span>GitHub</span>
+              <a href={profile.github} target="_blank" rel="noopener noreferrer">
+                github.com/Muruku333
               </a>
             </li>
           </ul>
@@ -88,7 +95,7 @@ export default function Contact() {
               onChange={onChange}
               required
               rows={5}
-              placeholder="What should we create together?"
+              placeholder="Tell me about the role or project..."
             />
           </label>
           <button type="submit" className="btn btn--primary">
@@ -96,7 +103,7 @@ export default function Contact() {
           </button>
           {sent && (
             <p className="contact__thanks" role="status">
-              Thanks — your message is ready locally. Connect a backend to deliver it.
+              Opening your email client — if it didn&apos;t open, write to {profile.email}.
             </p>
           )}
         </motion.form>

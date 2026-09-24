@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { education, experiences } from '../../data/portfolio';
+import { certifications, education, experiences } from '../../data/portfolio';
 import './Experience.css';
 
 export default function Experience() {
@@ -7,9 +7,10 @@ export default function Experience() {
     <section id="experience" className="section experience">
       <div className="section-inner">
         <p className="section-label">Experience</p>
-        <h2 className="section-title">Path of the plume</h2>
+        <h2 className="section-title">Professional journey</h2>
         <p className="section-lead">
-          Roles and education — edit dates and companies in your data file.
+          Full-stack delivery for Refex Group — enterprise apps, integrations, deployment and
+          production support.
         </p>
 
         <ol className="experience__timeline">
@@ -18,7 +19,7 @@ export default function Experience() {
               key={`${job.company}-${job.date}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              viewport={{ once: true, amount: 0.25 }}
               transition={{ delay: i * 0.08, duration: 0.45 }}
             >
               <div className="experience__dot" aria-hidden="true" />
@@ -42,7 +43,7 @@ export default function Experience() {
           ))}
         </ol>
 
-        <motion.aside
+        <motion.div
           className="experience__edu"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -50,11 +51,33 @@ export default function Experience() {
           transition={{ duration: 0.5 }}
         >
           <p className="section-label">Education</p>
-          <h3>{education.degree}</h3>
-          <p>
-            {education.school} · {education.date} · {education.location}
-          </p>
-        </motion.aside>
+          <ul className="experience__edu-list">
+            {education.map((item) => (
+              <li key={item.degree}>
+                <h3>{item.degree}</h3>
+                <p className="experience__edu-school">{item.school}</p>
+                <p>
+                  {item.board} · {item.date} · {item.score}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div
+          className="experience__certs"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <p className="section-label">Certifications &amp; training</p>
+          <ul>
+            {certifications.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </motion.div>
       </div>
     </section>
   );

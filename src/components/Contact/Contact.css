@@ -34,11 +34,18 @@
 
 .contact__channels a {
   font-family: var(--font-display);
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   color: var(--cream);
   border-bottom: 1px solid transparent;
   width: fit-content;
   transition: color 0.2s ease, border-color 0.2s ease;
+  word-break: break-word;
+}
+
+.contact__plain {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--cream);
 }
 
 .contact__channels a:hover {

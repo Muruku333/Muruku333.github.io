@@ -7,7 +7,7 @@ export default function About() {
     <section id="about" className="section about">
       <div className="section-inner">
         <p className="section-label">About</p>
-        <h2 className="section-title">The plumage behind the code</h2>
+        <h2 className="section-title">Full stack ownership, end to end</h2>
         <p className="section-lead">{profile.bio}</p>
 
         <div className="about__grid">
@@ -33,11 +33,11 @@ export default function About() {
           </div>
           <div>
             <dt>Focus</dt>
-            <dd>Product &amp; web engineering</dd>
+            <dd>{profile.focus}</dd>
           </div>
           <div>
-            <dt>Open to</dt>
-            <dd>Roles · collaborations · builds</dd>
+            <dt>Languages</dt>
+            <dd>{profile.languages.join(' · ')}</dd>
           </div>
         </dl>
       </div>

@@ -35,7 +35,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.6 }}
         >
-          Portfolio · Mayūra theme
+          Portfolio · Full Stack Developer
         </motion.p>
 
         <motion.h1
@@ -46,6 +46,15 @@ export default function Home() {
         >
           {profile.name}
         </motion.h1>
+
+        <motion.p
+          className="home__headline"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
+        >
+          {profile.headline}
+        </motion.p>
 
         <motion.div
           className="home__role"

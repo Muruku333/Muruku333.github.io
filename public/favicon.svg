@@ -2,12 +2,14 @@
   <defs>
     <radialGradient id="eye" cx="50%" cy="45%" r="50%">
       <stop offset="0%" stop-color="#F0C75E"/>
-      <stop offset="35%" stop-color="#1B6B4A"/>
-      <stop offset="65%" stop-color="#0B5FA5"/>
-      <stop offset="100%" stop-color="#062A4A"/>
+      <stop offset="35%" stop-color="#18D89F"/>
+      <stop offset="65%" stop-color="#00AEEF"/>
+      <stop offset="100%" stop-color="#04131F"/>
     </radialGradient>
   </defs>
-  <ellipse cx="32" cy="36" rx="22" ry="26" fill="url(#eye)"/>
-  <circle cx="32" cy="32" r="8" fill="#0A1628"/>
-  <circle cx="32" cy="32" r="3.5" fill="#F0C75E"/>
+  <rect width="64" height="64" rx="16" fill="#020B14"/>
+  <ellipse cx="32" cy="34" rx="20" ry="22" fill="url(#eye)"/>
+  <circle cx="32" cy="30" r="7" fill="#04131F"/>
+  <circle cx="32" cy="30" r="3" fill="#F0C75E"/>
+  <text x="32" y="58" text-anchor="middle" fill="#00C8D7" font-family="Segoe UI, Arial" font-size="9" font-weight="700">MK</text>
 </svg>

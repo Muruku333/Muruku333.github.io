@@ -3,129 +3,57 @@
   min-height: 100vh;
   min-height: 100dvh;
   display: grid;
-  align-items: end;
+  align-items: center;
   padding:
-    calc(var(--nav-h) + 1.5rem)
-    clamp(1.25rem, 4vw, 2.5rem)
-    4.5rem;
-  overflow: hidden;
+    calc(var(--nav-h) + 2.5rem)
+    clamp(1.15rem, 4vw, 2.5rem)
+    3.5rem;
   scroll-margin-top: 0;
 }
 
-.home__plume {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-}
-
-.home__feather-wrap {
-  position: absolute;
-  right: -8%;
-  top: 8%;
-  width: min(58vw, 520px);
-  height: auto;
-  filter: drop-shadow(0 20px 60px rgba(11, 95, 165, 0.35));
-}
-
-.home__feather {
-  width: 100%;
-  height: auto;
-  animation: feather-breathe 8s ease-in-out infinite;
-  transform-origin: 50% 80%;
-}
-
-@keyframes feather-breathe {
-  0%,
-  100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-12px) rotate(1.5deg);
-  }
-}
-
-.home__content {
-  position: relative;
-  z-index: 1;
-  width: min(1120px, 100%);
+.home__grid {
+  width: min(var(--content-w), 100%);
   margin-inline: auto;
-  max-width: 34rem;
+  display: grid;
+  gap: 2.5rem;
+  align-items: center;
 }
 
-.home__greeting {
-  margin: 0 0 0.85rem;
-  font-size: 0.8rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--plume);
+.home__hello {
+  margin: 0 0 0.55rem;
+  font-size: 1rem;
+  color: var(--accent);
   font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
-.home__brand {
+.home__name {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(4.2rem, 14vw, 7.5rem);
-  font-weight: 700;
-  line-height: 0.92;
-  letter-spacing: -0.02em;
-  color: var(--cream);
-  background: linear-gradient(120deg, #e8f4f8 10%, #5ce1e6 45%, #f0c75e 85%);
+  font-size: clamp(2.8rem, 8vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  background: var(--hero-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.home__headline {
-  margin: 0.85rem 0 0;
-  font-size: 0.82rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.home__role {
-  margin-top: 1.35rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.55rem 0.75rem;
-  min-height: 2rem;
-}
-
-.home__role-label {
-  color: var(--muted);
-  font-weight: 300;
-  font-size: 1.05rem;
-}
-
-.home__role-value {
+.home__title {
+  margin: 1rem 0 0;
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 3vw, 1.75rem);
-  font-weight: 600;
-  font-style: italic;
-  color: var(--gold);
-  animation: role-in 0.55s var(--ease-out);
-}
-
-@keyframes role-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+  font-weight: 700;
+  color: var(--heading);
 }
 
 .home__tagline {
-  margin: 1.15rem 0 0;
-  max-width: 28rem;
-  color: var(--mist);
-  font-size: 1.12rem;
-  line-height: 1.6;
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  color: var(--text-muted);
+  font-size: 1.08rem;
+  line-height: 1.7;
   font-weight: 300;
 }
 
@@ -133,64 +61,20 @@
   margin-top: 2rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.85rem;
+  gap: 0.75rem;
 }
 
-.home__scroll {
-  position: absolute;
-  left: 50%;
-  bottom: 1.5rem;
-  transform: translateX(-50%);
-  width: 26px;
-  height: 42px;
-  border: 1.5px solid rgba(92, 225, 230, 0.35);
-  border-radius: 999px;
-  display: grid;
-  justify-items: center;
-  padding-top: 8px;
-  z-index: 2;
+.home__visual {
+  order: -1;
 }
 
-.home__scroll span {
-  width: 4px;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--gold);
-  animation: scroll-dot 1.6s ease-in-out infinite;
-}
-
-@keyframes scroll-dot {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-}
-
-@media (min-width: 900px) {
-  .home {
-    align-items: center;
-    padding-bottom: 2rem;
+@media (min-width: 980px) {
+  .home__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 2rem;
   }
 
-  .home__content {
-    max-width: 40rem;
-  }
-
-  .home__feather-wrap {
-    right: 2%;
-    top: 12%;
-    width: min(46vw, 480px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .home__feather,
-  .home__role-value,
-  .home__scroll span {
-    animation: none;
+  .home__visual {
+    order: 0;
   }
 }

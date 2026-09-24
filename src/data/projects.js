@@ -1,0 +1,90 @@
+const projects = [
+  {
+    id: 'gama-airops',
+    title: 'GAMA AirOps',
+    subtitle: 'Sparzana Aviation Private Limited',
+    description:
+      'General Aviation Management application for Sparzana Aviation with quotation, aircraft, airport, customer, crew and flight management features.',
+    image: '/projects/gama-airops.svg',
+    technologies: [
+      'React',
+      'Node.js',
+      'Express.js',
+      'MySQL',
+      'Sequelize',
+      'MUI',
+      'JWT',
+      'Puppeteer',
+      'PDFKit',
+    ],
+    liveUrl: 'https://sparzana.refex.group',
+    githubUrl: '',
+    featured: true,
+  },
+  {
+    id: 'refex-contacts',
+    title: 'Refex Contacts',
+    subtitle: 'Refex Group — Admin & HR',
+    description:
+      'Digital visiting card platform with QR codes, employee information, HRMS synchronization and digital contact management.',
+    image: '/projects/refex-contacts.svg',
+    technologies: [
+      'React',
+      'Node.js',
+      'Express.js',
+      'MySQL',
+      'Sequelize',
+      'MUI',
+      'QR Code',
+    ],
+    liveUrl: 'https://contacts.dev.refex.group',
+    githubUrl: '',
+    featured: true,
+  },
+  {
+    id: 'pos-food-canteen',
+    title: 'POS Food / Canteen',
+    subtitle: 'Refex Group Canteen Management',
+    description:
+      'Food billing and canteen management system with QR-based workflows, employee billing, guest billing, menu management and kiosk support.',
+    image: '/projects/pos-food.svg',
+    technologies: [
+      'React',
+      'Node.js',
+      'Express.js',
+      'MySQL',
+      'Sequelize',
+      'QR',
+      'Electron',
+    ],
+    liveUrl: 'https://canteen.refex.group',
+    githubUrl: '',
+    featured: true,
+  },
+  {
+    id: 'refex-qr',
+    title: 'Refex QR-Code Platform',
+    subtitle: 'Group-wide QR Utility',
+    description:
+      'Centralised QR generation with Fixed URL, Dynamic URL, Upload File, Smart Link and Design QR — plus SSO and HRMS integrations.',
+    image: '/projects/refex-qr.svg',
+    technologies: ['React', 'Node.js', 'Express.js', 'MySQL', 'Sequelize', 'QR', 'SSO'],
+    liveUrl: 'https://qrcode.refex.group',
+    githubUrl: '',
+    featured: false,
+  },
+  {
+    id: 'refex-renewables',
+    title: 'Refex Renewables Website & CMS',
+    subtitle: 'Refex Renewables',
+    description:
+      'Full-stack corporate website with secure CMS, investor documents, management profiles, lead capture and live stock-market data.',
+    image: '/projects/refex-renewables.svg',
+    technologies: ['React', 'Node.js', 'Express.js', 'MySQL', 'Sequelize'],
+    liveUrl: '',
+    githubUrl: '',
+    featured: false,
+  },
+];
+
+export default projects;

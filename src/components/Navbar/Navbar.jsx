@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import { motion, AnimatePresence } from 'framer-motion';
-import { profile } from '../../data/portfolio';
+import { AnimatePresence, motion } from 'framer-motion';
+import { profile, siteConfig } from '../../data/portfolio';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 import './Navbar.css';
 
 const LINKS = [
@@ -9,21 +10,15 @@ const LINKS = [
   { id: 'about', label: 'About' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
   { id: 'contact', label: 'Contact' },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      setScrolled(window.scrollY > 24);
-      setProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
-    };
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -37,7 +32,6 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="nav-progress" style={{ width: `${progress}%` }} />
       <header className={`navbar ${scrolled ? 'is-scrolled' : ''}`}>
         <div className="navbar__inner">
           <Link
@@ -45,11 +39,13 @@ export default function Navbar() {
             smooth
             duration={500}
             offset={-70}
-            className="navbar__brand"
+            className="navbar__brand cursor-target"
             onClick={() => setOpen(false)}
           >
-            <span className="navbar__eye" aria-hidden="true" />
-            <span className="navbar__name">{profile.name}</span>
+            <span className="navbar__mark" aria-hidden="true">
+              {profile.brand}
+            </span>
+            <span className="sr-only">{profile.name}</span>
           </Link>
 
           <nav className="navbar__desktop" aria-label="Primary">
@@ -62,24 +58,34 @@ export default function Navbar() {
                 duration={500}
                 offset={-70}
                 activeClass="is-active"
-                className="navbar__link"
+                className="navbar__link cursor-target"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
-          <button
-            type="button"
-            className={`navbar__burger ${open ? 'is-open' : ''}`}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span />
-            <span />
-            <span />
-          </button>
+          <div className="navbar__actions">
+            <ThemeToggle />
+            <a
+              className="navbar__cv btn btn--ghost cursor-target"
+              href={siteConfig.resumePath}
+              download={siteConfig.resumeFileName}
+            >
+              Download CV
+            </a>
+            <button
+              type="button"
+              className={`navbar__burger cursor-target ${open ? 'is-open' : ''}`}
+              aria-label={open ? 'Close menu' : 'Open menu'}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+            >
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
         </div>
       </header>
 
@@ -87,15 +93,15 @@ export default function Navbar() {
         {open && (
           <motion.div
             className="navbar__drawer"
-            initial={{ opacity: 0, y: -12 }}
+            initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
+            exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.28 }}
           >
             {LINKS.map((link, i) => (
               <motion.div
                 key={link.id}
-                initial={{ opacity: 0, x: -16 }}
+                initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.04 * i }}
               >
@@ -104,13 +110,21 @@ export default function Navbar() {
                   smooth
                   duration={500}
                   offset={-70}
-                  className="navbar__drawer-link"
+                  className="navbar__drawer-link cursor-target"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
                 </Link>
               </motion.div>
             ))}
+            <a
+              className="btn btn--primary navbar__drawer-cv cursor-target"
+              href={siteConfig.resumePath}
+              download={siteConfig.resumeFileName}
+              onClick={() => setOpen(false)}
+            >
+              Download CV ↓
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

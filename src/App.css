@@ -3,38 +3,6 @@
   min-height: 100vh;
 }
 
-.app-atmosphere {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 90% 60% at 85% -10%, rgba(11, 95, 165, 0.45), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 10% 20%, rgba(0, 168, 150, 0.22), transparent 50%),
-    radial-gradient(ellipse 50% 40% at 70% 80%, rgba(27, 138, 107, 0.18), transparent 55%),
-    linear-gradient(165deg, #061018 0%, #0a1a28 40%, #0d2740 100%);
-}
-
-.app-atmosphere__veil {
-  position: absolute;
-  inset: 0;
-  opacity: 0.4;
-  background-image:
-    radial-gradient(circle at 20% 30%, rgba(240, 199, 94, 0.07) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 80% 60%, rgba(92, 225, 230, 0.06) 0 1px, transparent 1.5px);
-  background-size: 48px 48px, 36px 36px;
-  animation: veil-drift 40s linear infinite;
-}
-
-@keyframes veil-drift {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(36px);
-  }
-}
-
 .app-content {
   position: relative;
   z-index: 1;
@@ -49,22 +17,22 @@
   height: 48px;
   border: 1px solid var(--border);
   border-radius: 50%;
-  background: rgba(10, 26, 40, 0.85);
-  color: var(--gold);
+  background: var(--surface-strong);
+  color: var(--accent);
   cursor: pointer;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   display: grid;
   place-items: center;
   font-size: 1.1rem;
+  box-shadow: 0 8px 24px var(--glow);
 }
 
 .scroll-top:hover {
-  border-color: var(--teal);
-  color: var(--plume);
+  border-color: var(--accent);
+  color: var(--accent-2);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .app-atmosphere__veil {
-    animation: none;
-  }
+.scroll-top:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }

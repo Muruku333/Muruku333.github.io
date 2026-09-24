@@ -1,32 +1,25 @@
-# Murugesh Portfolio
+# Murugesh Kumar — Portfolio
 
-React + Vite personal portfolio with an **Indian peacock (Mayūra)** colour theme — sapphire, teal, emerald, and gold eye accents.
+Premium peacock-themed Full Stack Developer portfolio (React + Vite).
 
-## Quick start
+## Run locally
 
 ```bash
-cd D:\Murugesh\portfolio
 npm install
 npm run dev
 ```
 
-Open the URL Vite prints (usually `http://localhost:5173`).
+## Customize
 
-## Customize your content
+| What | Where |
+|------|--------|
+| Profile / email / LinkedIn / resume path | `src/data/portfolio.js` |
+| Projects + live URLs | `src/data/projects.js` |
+| Skills | `src/data/skills.js` |
+| Theme tokens | `src/index.css` (`[data-theme='dark']` / `[data-theme='light']`) |
+| Resume PDF | `public/resume/Murugesh-Kumar-Resume.pdf` |
+| Project cover images | `public/projects/` |
 
-Edit `src/data/portfolio.js` for name, bio, skills, projects, experience, and links.
+## Deploy
 
-## Structure
-
-```
-portfolio/
-├── public/
-├── src/
-│   ├── components/
-│   ├── data/
-│   ├── App.jsx
-│   └── index.css
-├── index.html
-├── package.json
-└── vite.config.js
-```
+Push to `main` — GitHub Actions deploys to GitHub Pages via `.github/workflows/deploy.yml`.

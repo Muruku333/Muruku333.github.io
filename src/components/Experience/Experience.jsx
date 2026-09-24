@@ -6,11 +6,24 @@ export default function Experience() {
   return (
     <section id="experience" className="section experience">
       <div className="section-inner">
-        <p className="section-label">Experience</p>
-        <h2 className="section-title">Professional journey</h2>
+        <motion.p
+          className="section-index"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Experience
+        </motion.p>
+        <motion.h2
+          className="section-title"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Professional journey
+        </motion.h2>
         <p className="section-lead">
-          Full-stack delivery for Refex Group — enterprise apps, integrations, deployment and
-          production support.
+          Full-stack delivery for Refex Group — architecture, integrations, deployment and support.
         </p>
 
         <ol className="experience__timeline">
@@ -23,7 +36,7 @@ export default function Experience() {
               transition={{ delay: i * 0.08, duration: 0.45 }}
             >
               <div className="experience__dot" aria-hidden="true" />
-              <div className="experience__card">
+              <div className="experience__card glass">
                 <div className="experience__meta">
                   <span>{job.date}</span>
                   <span>{job.type}</span>
@@ -43,41 +56,28 @@ export default function Experience() {
           ))}
         </ol>
 
-        <motion.div
-          className="experience__edu"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="section-label">Education</p>
-          <ul className="experience__edu-list">
+        <div className="experience__bottom">
+          <div>
+            <p className="section-index">Education</p>
             {education.map((item) => (
-              <li key={item.degree}>
+              <div key={item.degree} className="experience__edu glass">
                 <h3>{item.degree}</h3>
-                <p className="experience__edu-school">{item.school}</p>
+                <p>{item.school}</p>
                 <p>
                   {item.board} · {item.date} · {item.score}
                 </p>
-              </li>
+              </div>
             ))}
-          </ul>
-        </motion.div>
-
-        <motion.div
-          className="experience__certs"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="section-label">Certifications &amp; training</p>
-          <ul>
-            {certifications.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </motion.div>
+          </div>
+          <div>
+            <p className="section-index">Certifications</p>
+            <ul className="experience__certs glass">
+              {certifications.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );

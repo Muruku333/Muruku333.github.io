@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+import Atmosphere from './components/Atmosphere/Atmosphere';
+import CustomCursor from './components/CustomCursor/CustomCursor';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import About from './components/About/About';
@@ -21,10 +23,8 @@ function App() {
 
   return (
     <div className="app-shell">
-      <div className="app-atmosphere" aria-hidden="true">
-        <div className="app-atmosphere__veil" />
-      </div>
-
+      <Atmosphere />
+      <CustomCursor />
       <Navbar />
 
       <main className="app-content">
@@ -41,7 +41,7 @@ function App() {
       <AnimatePresence>
         {showTop && (
           <motion.button
-            className="scroll-top"
+            className="scroll-top cursor-target"
             type="button"
             aria-label="Scroll to top"
             initial={{ opacity: 0, y: 16 }}

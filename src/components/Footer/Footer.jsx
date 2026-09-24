@@ -7,16 +7,37 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__inner">
-        <div className="footer__brand">
-          <span className="footer__eye" aria-hidden="true" />
-          <strong>{profile.fullName}</strong>
-        </div>
-        <p>
-          {profile.title} · {profile.location}
-        </p>
         <p className="footer__copy">
-          © {year} {profile.fullName}. All rights reserved.
+          © {year} {profile.name}. All rights reserved.
         </p>
+        <p className="footer__stack">Built with React • Node.js • MySQL</p>
+        <div className="footer__social">
+          {profile.github && (
+            <a
+              className="cursor-target"
+              href={profile.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="GitHub"
+            >
+              GitHub
+            </a>
+          )}
+          {profile.linkedin && (
+            <a
+              className="cursor-target"
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              LinkedIn
+            </a>
+          )}
+          <a className="cursor-target" href={`mailto:${profile.email}`} aria-label="Email">
+            Email
+          </a>
+        </div>
       </div>
     </footer>
   );

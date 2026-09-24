@@ -1,0 +1,55 @@
+.custom-cursor {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.custom-cursor.is-visible {
+  opacity: 1;
+}
+
+.custom-cursor__dot,
+.custom-cursor__ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  will-change: transform;
+  margin: 0;
+}
+
+.custom-cursor__dot {
+  width: 8px;
+  height: 8px;
+  background: var(--cursor-core);
+  box-shadow: 0 0 14px var(--glow-strong);
+  transform: translate3d(-100px, -100px, 0);
+  margin-left: -4px;
+  margin-top: -4px;
+}
+
+.custom-cursor__ring {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid var(--cursor-ring);
+  transform: translate3d(-100px, -100px, 0);
+  margin-left: -18px;
+  margin-top: -18px;
+  transition: width 0.3s ease, height 0.3s ease, margin 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-cursor.is-active .custom-cursor__ring {
+  width: 52px;
+  height: 52px;
+  margin-left: -26px;
+  margin-top: -26px;
+  border-color: var(--accent-2);
+  box-shadow: 0 0 22px var(--glow);
+}
+
+.custom-cursor.is-active .custom-cursor__dot {
+  transform: translate3d(var(--x, 0), var(--y, 0), 0) scale(0.7);
+}

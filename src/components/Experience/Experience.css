@@ -1,0 +1,86 @@
+.experience__timeline {
+  list-style: none;
+  margin: 0 0 3rem;
+  padding: 0;
+  position: relative;
+}
+
+.experience__timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--sapphire), var(--teal), var(--gold));
+  opacity: 0.55;
+}
+
+.experience__timeline > li {
+  position: relative;
+  padding-left: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.experience__dot {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, var(--gold) 0 28%, var(--jade) 29% 55%, var(--sapphire) 56% 100%);
+  box-shadow: 0 0 12px rgba(240, 199, 94, 0.4);
+}
+
+.experience__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-bottom: 0.45rem;
+  font-size: 0.8rem;
+  color: var(--plume);
+  letter-spacing: 0.04em;
+}
+
+.experience__card h3 {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.experience__card h3 span {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.experience__card ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.experience__card li + li {
+  margin-top: 0.35rem;
+}
+
+.experience__edu {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.experience__edu h3 {
+  margin: 0 0 0.4rem;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--cream);
+}
+
+.experience__edu p:last-child {
+  margin: 0;
+  color: var(--muted);
+}

@@ -81,7 +81,7 @@ const projects = [
       'Full-stack corporate website with secure CMS, investor documents, management profiles, lead capture and live stock-market data.',
     image: '/projects/refex-renewables.svg',
     technologies: ['React', 'Node.js', 'Express.js', 'MySQL', 'Sequelize'],
-    liveUrl: '',
+    liveUrl: 'https://refexrenewables.com/',
     githubUrl: '',
     featured: false,
   },

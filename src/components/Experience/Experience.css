@@ -1,118 +1,62 @@
-.experience__timeline {
-  list-style: none;
-  margin: 0 0 2.5rem;
-  padding: 0;
-  position: relative;
+.experience-list {
+  display: grid;
+  gap: 1.15rem;
+  margin-bottom: 1.25rem;
 }
 
-.experience__timeline::before {
-  content: '';
-  position: absolute;
-  left: 7px;
-  top: 10px;
-  bottom: 10px;
-  width: 2px;
-  background: linear-gradient(180deg, var(--accent-3), var(--accent-2), var(--accent-4));
-  opacity: 0.55;
+.experience-card,
+.experience-side {
+  padding: 1.4rem 1.3rem;
 }
 
-.experience__timeline > li {
-  position: relative;
-  padding-left: 2.25rem;
-  margin-bottom: 1.35rem;
-}
-
-.experience__dot {
-  position: absolute;
-  left: 0;
-  top: 1.2rem;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 40% 35%, #f0c75e 0 28%, var(--accent-4) 29% 55%, var(--accent-3) 56% 100%);
-  box-shadow: 0 0 12px var(--glow);
-}
-
-.experience__card {
-  border-radius: var(--radius-lg);
-  padding: 1.35rem 1.3rem;
-}
-
-.experience__meta {
+.experience-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1rem;
   margin-bottom: 0.45rem;
-  font-size: 0.8rem;
-  color: var(--accent);
+  font-size: 0.82rem;
+  color: var(--primary-text);
 }
 
-.experience__card h3 {
+.experience-card h3,
+.experience-side h3 {
   margin: 0 0 0.75rem;
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 700;
   color: var(--heading);
+  font-size: 1.2rem;
 }
 
-.experience__card h3 span {
-  color: var(--text-muted);
-  font-weight: 600;
-}
-
-.experience__card ul {
+.experience-card ul,
+.experience-side ul {
   margin: 0;
   padding-left: 1.1rem;
-  color: var(--text-muted);
+  color: var(--muted);
   line-height: 1.65;
-  font-weight: 300;
 }
 
-.experience__card li + li {
-  margin-top: 0.4rem;
+.experience-card li + li,
+.experience-side li + li {
+  margin-top: 0.35rem;
 }
 
-.experience__bottom {
+.experience-bottom {
   display: grid;
-  gap: 1.25rem;
+  gap: 1.15rem;
 }
 
 @media (min-width: 800px) {
-  .experience__bottom {
+  .experience-bottom {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.experience__edu,
-.experience__certs {
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.2rem;
-}
-
-.experience__edu h3 {
-  margin: 0 0 0.4rem;
-  font-family: var(--font-display);
-  font-size: 1.2rem;
+.experience-side strong {
+  display: block;
+  margin-bottom: 0.35rem;
   color: var(--heading);
 }
 
-.experience__edu p {
+.experience-side p {
   margin: 0;
-  color: var(--text-muted);
+  color: var(--muted);
   line-height: 1.55;
-}
-
-.experience__edu p + p {
-  margin-top: 0.25rem;
-}
-
-.experience__certs {
-  margin: 0;
-  padding-left: 2rem;
-  color: var(--text-muted);
-  line-height: 1.65;
-}
-
-.experience__certs li + li {
-  margin-top: 0.45rem;
 }

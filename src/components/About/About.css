@@ -1,93 +1,58 @@
-.about__layout {
+.about-grid {
   display: grid;
-  gap: 2.25rem;
-  align-items: start;
+  gap: 1.25rem;
 }
 
-@media (min-width: 900px) {
-  .about__layout {
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 3rem;
+@media (min-width: 860px) {
+  .about-grid {
+    grid-template-columns: 1.2fr 0.8fr;
   }
 }
 
-.about__bio p {
-  margin: 0 0 1rem;
-  color: var(--text-muted);
-  line-height: 1.75;
-  font-size: 1.05rem;
-  font-weight: 300;
-  max-width: 36rem;
+.about-card {
+  padding: 1.5rem 1.4rem;
 }
 
-.about__feather {
-  width: 72px;
-  height: 110px;
-  margin-top: 1.5rem;
-  opacity: 0.45;
-  background:
-    radial-gradient(ellipse at 50% 22%, #f0c75e 0 10%, transparent 11%),
-    radial-gradient(ellipse at 50% 28%, var(--accent-4) 0 22%, transparent 23%),
-    radial-gradient(ellipse at 50% 38%, var(--accent-3) 0 40%, transparent 41%),
-    linear-gradient(180deg, transparent 25%, color-mix(in srgb, var(--accent) 40%, transparent));
-  border-radius: 50% 50% 42% 42%;
-}
-
-.about__card {
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  padding: 1.6rem 1.5rem;
-  transition: border-color 0.35s ease, box-shadow 0.35s ease;
-}
-
-.about__card:hover {
-  border-color: var(--border-strong);
-  box-shadow: 0 18px 50px var(--glow);
-}
-
-.about__card-glow {
-  position: absolute;
-  inset: auto -20% -40% auto;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: radial-gradient(circle, var(--glow-strong), transparent 70%);
-  pointer-events: none;
-}
-
-.about__row {
-  display: grid;
-  gap: 0.25rem;
-  padding: 0.85rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.about__row:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.about__row:first-child {
-  padding-top: 0;
-}
-
-.about__row dt {
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-.about__row dd {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
+.about-card h3 {
+  margin: 0 0 0.85rem;
+  font-size: 1.25rem;
   color: var(--heading);
+}
+
+.about-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  white-space: pre-line;
+}
+
+.about-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.about-info li {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.about-info span {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary-text);
+}
+
+.about-info a,
+.about-info strong {
+  color: var(--heading);
+  font-weight: 600;
   word-break: break-word;
 }
 
-.about__row a:hover {
-  color: var(--accent);
+.about-info a:hover {
+  color: var(--primary-text);
 }

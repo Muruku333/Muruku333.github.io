@@ -1,8 +1,7 @@
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 const ThemeContext = createContext(null);
-
-const STORAGE_KEY = 'mk-theme';
+const STORAGE_KEY = 'theme';
 
 function getSystemTheme() {
   if (typeof window === 'undefined') return 'dark';
@@ -19,6 +18,11 @@ function getInitialTheme() {
   return getSystemTheme();
 }
 
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  document.body.className = `${theme}-theme`;
+}
+
 export function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(() => {
     if (typeof document !== 'undefined') {
@@ -29,28 +33,13 @@ export function ThemeProvider({ children }) {
   });
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
+    applyTheme(theme);
     try {
       localStorage.setItem(STORAGE_KEY, theme);
     } catch {
       /* ignore */
     }
   }, [theme]);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: light)');
-    const onChange = () => {
-      try {
-        if (!localStorage.getItem(STORAGE_KEY)) {
-          setTheme(mq.matches ? 'light' : 'dark');
-        }
-      } catch {
-        /* ignore */
-      }
-    };
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, []);
 
   const value = useMemo(
     () => ({
